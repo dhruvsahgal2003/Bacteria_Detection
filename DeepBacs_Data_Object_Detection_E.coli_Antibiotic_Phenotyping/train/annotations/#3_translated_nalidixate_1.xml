@@ -1,0 +1,37 @@
+<annotation>
+	<folder>my-project-name</folder>
+	<filename>#3_translated_nalidixate_1.png</filename>
+	<path>/my-project-name/#3_translated_nalidixate_1.png</path>
+	<source>
+		<database>Unspecified</database>
+	</source>
+	<size>
+		<width>400</width>
+		<height>400</height>
+		<depth>3</depth>
+	</size>
+	<object>
+		<name>Oblique</name>
+		<pose>Unspecified</pose>
+		<truncated>Unspecified</truncated>
+		<difficult>Unspecified</difficult>
+		<bndbox>
+			<xmin>275</xmin>
+			<ymin>86</ymin>
+			<xmax>310</xmax>
+			<ymax>152</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>Nalidixate</name>
+		<pose>Unspecified</pose>
+		<truncated>Unspecified</truncated>
+		<difficult>Unspecified</difficult>
+		<bndbox>
+			<xmin>381</xmin>
+			<ymin>261</ymin>
+			<xmax>398</xmax>
+			<ymax>315</ymax>
+		</bndbox>
+	</object>
+</annotation>

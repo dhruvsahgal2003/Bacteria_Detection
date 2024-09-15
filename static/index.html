@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bacteria Detection</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f9;
+      }
+      h1 {
+        color: #333;
+      }
+      form {
+        margin-bottom: 20px;
+      }
+      input[type="file"] {
+        display: block;
+        margin-bottom: 10px;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      #result {
+        white-space: pre-wrap;
+        background-color: #eaeaea;
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin-top: 20px;
+      }
+      #result img {
+        max-width: 100%;
+        border: 1px solid #ddd;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bacteria Detection</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="file" name="file" accept=".jpg,.jpeg,.png" />
+      <button type="button" onclick="uploadImage()">Detect Bacteria</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+      function uploadImage() {
+        var formData = new FormData();
+        var fileInput = document.querySelector('input[type="file"]');
+        formData.append("file", fileInput.files[0]);
+
+        fetch("/predict", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            if (result.error) {
+              document.getElementById("result").innerText = result.error;
+            } else {
+              document.getElementById("result").innerHTML = `
+                <pre>${JSON.stringify(result.result, null, 2)}</pre>
+                <img src="${result.image_url}" alt="Detected Bacteria"/>
+              `;
+            }
+          })
+          .catch((error) => {
+            document.getElementById("result").innerText = "Error: " + error;
+          });
+      }
+    </script>
+  </body>
+</html>

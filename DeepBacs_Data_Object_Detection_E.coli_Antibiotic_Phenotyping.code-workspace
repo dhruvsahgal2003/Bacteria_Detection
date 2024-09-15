@@ -1,0 +1,15 @@
+{
+  "folders": [
+	{
+		"name": "DeepBacs_Data_Object_Detection_E.coli_Antibiotic_Phenotyping",
+		"path": "../Desktop/proj_3/DeepBacs_Data_Object_Detection_E.coli_Antibiotic_Phenotyping"
+	},
+	{
+		"name": "proj_3",
+		"path": "."
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "proj_3"
+  }
+}
